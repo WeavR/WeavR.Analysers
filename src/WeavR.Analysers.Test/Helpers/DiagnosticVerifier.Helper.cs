@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
+using System.Reflection;
 
 namespace TestHelper
 {
@@ -170,10 +171,23 @@ namespace TestHelper
             {
                 var newFileName = fileNamePrefix + count + "." + fileExt;
                 var documentId = DocumentId.CreateNewId(projectId, debugName: newFileName);
-                solution = solution.AddDocument(documentId, newFileName, SourceText.From(source));
+                solution = solution.AddDocument(documentId, newFileName, GetSource(source));
                 count++;
             }
             return solution.GetProject(projectId);
+        }
+
+        private static SourceText GetSource(string source)
+        {
+            var code = Assembly.GetAssembly(typeof(DiagnosticVerifier))
+                .GetManifestResourceStream("WeavR.Analysers.Test.CodeUnderTest." + source);
+
+            if (code == null)
+            {
+                return SourceText.From(source);
+            }
+
+            return SourceText.From(code);
         }
         #endregion
     }
