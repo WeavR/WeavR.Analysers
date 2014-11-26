@@ -25,9 +25,9 @@ namespace TestHelper
         internal static string DefaultFilePathPrefix = "Test";
         internal static string CSharpDefaultFileExt = "cs";
         internal static string VisualBasicDefaultExt = "vb";
-        internal static string CSharpDefaultFilePath = DefaultFilePathPrefix + 0 + "." + CSharpDefaultFileExt;
-        internal static string VisualBasicDefaultFilePath = DefaultFilePathPrefix + 0 + "." + VisualBasicDefaultExt;
         internal static string TestProjectName = "TestProject";
+
+        private static readonly Assembly TestAssembly = Assembly.GetAssembly(typeof(DiagnosticVerifier));
 
         #region  Get Diagnostics
 
@@ -118,11 +118,6 @@ namespace TestHelper
                 throw new ArgumentException("Unsupported Language");
             }
 
-            for (int i = 0; i < sources.Length; i++)
-            {
-                string fileName = language == LanguageNames.CSharp ? "Test" + i + ".cs" : "Test" + i + ".vb";
-            }
-
             var project = CreateProject(sources, language);
             var documents = project.Documents.ToArray();
 
@@ -169,7 +164,10 @@ namespace TestHelper
             int count = 0;
             foreach (var source in sources)
             {
-                var newFileName = fileNamePrefix + count + "." + fileExt;
+                var newFileName =
+                    TestAssembly.GetManifestResourceInfo("WeavR.Analysers.Test.CodeUnderTest." + source) == null ?
+                    fileNamePrefix + count + "." + fileExt :
+                    source;
                 var documentId = DocumentId.CreateNewId(projectId, debugName: newFileName);
                 solution = solution.AddDocument(documentId, newFileName, GetSource(source));
                 count++;
@@ -179,8 +177,7 @@ namespace TestHelper
 
         private static SourceText GetSource(string source)
         {
-            var code = Assembly.GetAssembly(typeof(DiagnosticVerifier))
-                .GetManifestResourceStream("WeavR.Analysers.Test.CodeUnderTest." + source);
+            var code = TestAssembly.GetManifestResourceStream("WeavR.Analysers.Test.CodeUnderTest." + source);
 
             if (code == null)
             {

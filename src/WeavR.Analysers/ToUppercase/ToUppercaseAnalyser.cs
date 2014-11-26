@@ -6,16 +6,15 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace WeavR.Analysers.ToUppercase
 {
     [DiagnosticAnalyzer]
-    public class WeavRAnalysersAnalyzer : DiagnosticAnalyzer
+    public class ToUppercaseAnalyser : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "WeavR.Analysers";
-        internal const string Title = "Type name contains lowercase letters";
-        internal const string MessageFormat = "Type name '{0}' contains lowercase letters";
-        internal const string Category = "Naming";
-
-        internal static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true);
-
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
+        {
+            get
+            {
+                return ImmutableArray.Create(Descriptors.WV0001);
+            }
+        }
 
         public override void Initialize(AnalysisContext context)
         {
@@ -32,7 +31,7 @@ namespace WeavR.Analysers.ToUppercase
             if (namedTypeSymbol.Name.ToCharArray().Any(char.IsLower))
             {
                 // For all such symbols, produce a diagnostic.
-                var diagnostic = Diagnostic.Create(Rule, namedTypeSymbol.Locations[0], namedTypeSymbol.Name);
+                var diagnostic = Diagnostic.Create(Descriptors.WV0001, namedTypeSymbol.Locations[0], namedTypeSymbol.Name);
 
                 context.ReportDiagnostic(diagnostic);
             }

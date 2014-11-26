@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ToUppercase\CodeFixProvider.cs" />
-    <Compile Include="ToUppercase\DiagnosticAnalyzer.cs" />
+    <Compile Include="Descriptors.cs" />
+    <Compile Include="ToUppercase\ToUppercaseCodeFixProvider.cs" />
+    <Compile Include="ToUppercase\ToUppercaseDiagnosticAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -12,12 +12,12 @@ using Microsoft.CodeAnalysis.Rename;
 
 namespace WeavR.Analysers.ToUppercase
 {
-    [ExportCodeFixProvider("WeavR.AnalysersCodeFixProvider", LanguageNames.CSharp), Shared]
-    public class WeavRAnalysersCodeFixProvider : CodeFixProvider
+    [ExportCodeFixProvider(nameof(ToUppercaseCodeFixProvider), LanguageNames.CSharp), Shared]
+    public class ToUppercaseCodeFixProvider : CodeFixProvider
     {
         public sealed override ImmutableArray<string> GetFixableDiagnosticIds()
         {
-            return ImmutableArray.Create(WeavRAnalysersAnalyzer.DiagnosticId);
+            return ImmutableArray.Create(Descriptors.WV0001.Id);
         }
 
         public sealed override FixAllProvider GetFixAllProvider()

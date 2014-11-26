@@ -111,12 +111,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CodeUnderTest\ToUppercase\Simple.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Verifiers\CodeFixVerifier.cs" />
     <Compile Include="Verifiers\DiagnosticVerifier.cs" />
     <Compile Include="Helpers\CodeFixVerifier.Helper.cs" />
     <Compile Include="Helpers\DiagnosticResult.cs" />
     <Compile Include="Helpers\DiagnosticVerifier.Helper.cs" />
-    <Compile Include="UnitTests.cs" />
+    <Compile Include="ToUppercaseTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeavR.Analysers\WeavR.Analysers.csproj">

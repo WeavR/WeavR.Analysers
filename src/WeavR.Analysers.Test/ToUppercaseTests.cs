@@ -11,8 +11,6 @@ namespace WeavR.Analysers.Test
     [TestClass]
     public class ToUppercaseTests : CodeFixVerifier
     {
-
-        //No diagnostics expected to show up
         [TestMethod]
         public void BlankShouldNotProduceDiagnostics()
         {
@@ -24,16 +22,8 @@ namespace WeavR.Analysers.Test
         [TestMethod]
         public void DiagnosticDetectsTypeName()
         {
-            var expected = new DiagnosticResult
-            {
-                Id = WeavRAnalysersAnalyzer.DiagnosticId,
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
-                Severity = DiagnosticSeverity.Warning,
-                Locations =
-                    new[] {
-                            new DiagnosticResultLocation("Test0.cs", 10, 11)
-                        }
-            };
+            var expected = Descriptors.WV0001
+                .CreateResult(new DiagnosticResultLocation("ToUppercase.Simple.cs", 10, 11), "TypeName");
 
             VerifyCSharpDiagnostic("ToUppercase.Simple.cs", expected);
         }
@@ -46,12 +36,12 @@ namespace WeavR.Analysers.Test
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
         {
-            return new WeavRAnalysersCodeFixProvider();
+            return new ToUppercaseCodeFixProvider();
         }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new WeavRAnalysersAnalyzer();
+            return new ToUppercaseAnalyser();
         }
     }
 }
