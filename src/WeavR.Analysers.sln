@@ -16,18 +16,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeavR.Analysers.Vsix", "Wea
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		BuildServer|Any CPU = BuildServer|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{602798E9-07C8-4A74-ACB1-518B779D247B}.BuildServer|Any CPU.ActiveCfg = Release|Any CPU
+		{602798E9-07C8-4A74-ACB1-518B779D247B}.BuildServer|Any CPU.Build.0 = Release|Any CPU
 		{602798E9-07C8-4A74-ACB1-518B779D247B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{602798E9-07C8-4A74-ACB1-518B779D247B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{602798E9-07C8-4A74-ACB1-518B779D247B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{602798E9-07C8-4A74-ACB1-518B779D247B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.BuildServer|Any CPU.ActiveCfg = Release|Any CPU
+		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.BuildServer|Any CPU.Build.0 = Release|Any CPU
 		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C76D233-6200-4E60-94B2-71E804EE4AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1946180-D5AD-40B6-A540-249DBB63A67D}.BuildServer|Any CPU.ActiveCfg = BuildServer|Any CPU
+		{A1946180-D5AD-40B6-A540-249DBB63A67D}.BuildServer|Any CPU.Build.0 = BuildServer|Any CPU
 		{A1946180-D5AD-40B6-A540-249DBB63A67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A1946180-D5AD-40B6-A540-249DBB63A67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1946180-D5AD-40B6-A540-249DBB63A67D}.Release|Any CPU.ActiveCfg = Release|Any CPU

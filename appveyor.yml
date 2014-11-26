@@ -1,4 +1,4 @@
-configuration: Release
+configuration: BuildServer
 
 os: Visual Studio 2015 Preview
 
