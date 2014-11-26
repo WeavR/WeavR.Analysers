@@ -33,8 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Descriptors.cs" />
+    <Compile Include="Framework\DiagnosticAnalyser.cs" />
     <Compile Include="ToUppercase\ToUppercaseCodeFixProvider.cs" />
-    <Compile Include="ToUppercase\ToUppercaseDiagnosticAnalyzer.cs" />
+    <Compile Include="ToUppercase\ToUppercaseAnalyser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
