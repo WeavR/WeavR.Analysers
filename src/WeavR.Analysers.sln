@@ -5,14 +5,14 @@ VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeavR.Analysers", "WeavR.Analysers\WeavR.Analysers.csproj", "{602798E9-07C8-4A74-ACB1-518B779D247B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{783F82ED-058C-4A36-9303-EF8A9C4B7437}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeavR.Analysers.Test", "WeavR.Analysers.Test\WeavR.Analysers.Test.csproj", "{2C76D233-6200-4E60-94B2-71E804EE4AFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeavR.Analysers.Vsix", "WeavR.Analysers.Vsix\WeavR.Analysers.Vsix.csproj", "{A1946180-D5AD-40B6-A540-249DBB63A67D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F1B4F6C8-3B2C-4C15-8619-9F73212EFEA2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
